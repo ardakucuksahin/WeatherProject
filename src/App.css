@@ -1,0 +1,36 @@
+.card {
+  height: 100px;
+  width: 300px;
+  position: relative;
+  margin: 25px;
+  border: 2px solid rgba(0, 0, 0, 0.75);
+  border-radius: 2px;
+}
+
+.country {
+left: 0;
+top: 0;
+margin: 5 30 30 5 ; 
+position: absolute;
+}
+
+.name {
+  left: 0;
+  bottom: 0;
+  margin: 30 0 5 5;
+  position: absolute;
+}
+
+.timezone {
+  right: 0;
+  top: 0;
+  margin: 5 5 30 0;
+  position: absolute;
+}
+
+.localtime {
+  right: 0;
+  bottom: 0;
+  margin: 30 5 5 0;
+  position: absolute;
+}
