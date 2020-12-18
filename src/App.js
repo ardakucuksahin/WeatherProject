@@ -2,14 +2,16 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-let key = '5e81621c07d80d707f0da6fac3115dce';
+let key = '**YOUR KEY GOES HERE';
 function App() {
   const [current, setCurrent] = useState({});
   const [location, setLocation] = useState({});
-  
+  const [city, setCity] = useState('London');
+
   useEffect(() => {
-    axios.get(`http://api.weatherstack.com/current?access_key=${key}&query=London`)
-      // 'https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key='+key+'&steamid='+id+'&relationship=friend'
+    console.log(key,"  ",city)
+    axios.get(`http://api.weatherstack.com/current?access_key=${key}&query=${city}`)
+
       .then((response) => {
         console.log(response);
         setCurrent(response.data.current);
@@ -18,7 +20,20 @@ function App() {
       .catch((error) => {
         console.log(error);
       })
-  }, [])
+  }, [city])
+
+
+  let input = '';
+  const inputChanger = (e) => {
+    input = e.target.value;
+
+  }
+
+  const citySearcher = () => {
+    setCity(input)
+  }
+
+
   let context = null;
   if (location !== {} && current !== {}) {
     context = (
@@ -39,6 +54,13 @@ function App() {
 
   return (
     <div className="App">
+
+      <div className="input">
+        <input type="text" onChange={(e) => inputChanger(e)} />
+        <button onClick={citySearcher }>Search</button>
+      </div>
+
+
       <div className="card">
         <p className="country">{location.country}</p>
         <p className="name">{location.name}</p>

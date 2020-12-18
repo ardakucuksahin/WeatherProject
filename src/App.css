@@ -1,6 +1,8 @@
+
 .card {
   height: 100px;
   width: 300px;
+  right: -300px;
   position: relative;
   margin: 25px;
   border: 2px solid rgba(0, 0, 0, 0.75);
@@ -8,29 +10,47 @@
 }
 
 .country {
-left: 0;
-top: 0;
-margin: 5 30 30 5 ; 
+left: 0px;
+top: 0px;
+margin: 5px 30px 30px 10px ; 
 position: absolute;
 }
 
 .name {
-  left: 0;
-  bottom: 0;
-  margin: 30 0 5 5;
+  left: 0px;
+  bottom: 0px;
+  margin: 30px 0px 5px 10px;
   position: absolute;
 }
 
 .timezone {
-  right: 0;
-  top: 0;
-  margin: 5 5 30 0;
+  right: 0px;
+  top: 0px;
+  margin: 5px 10px 30px 0px;
   position: absolute;
 }
 
 .localtime {
-  right: 0;
-  bottom: 0;
-  margin: 30 5 5 0;
+  right: 0px;
+  bottom: 0px;
+  margin: 30px 10px 5px 0px;
   position: absolute;
+}
+
+.input {
+top: 0px;
+left: 0px;
+margin: 50px 0px 0px 20px;
+display: inline-block;
+position: absolute;
+}
+
+.input button  {
+margin: 0px 0px 0px 8px;
+background-color: rgb(59, 161, 50);
+border-radius: 2px;
+}
+
+.input button:hover {
+background-color: rgb(113, 226, 113);
 }
