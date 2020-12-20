@@ -1,4 +1,13 @@
 
+body {
+  background-image: url("/src/img/weather_background.jpg");
+  width: 1080;
+  height: 100%;
+  display: block;
+}
+
+
+
 .card {
   height: 100px;
   width: 300px;
@@ -6,7 +15,9 @@
   position: relative;
   margin: 25px;
   border: 2px solid rgba(0, 0, 0, 0.75);
-  border-radius: 2px;
+  border-radius: 4px;
+  background-color: lightblue;
+  box-shadow:0px 1px rgb(0, 0, 0)
 }
 
 .country {
@@ -40,17 +51,42 @@ position: absolute;
 .input {
 top: 0px;
 left: 0px;
-margin: 50px 0px 0px 20px;
+margin: 45px;
 display: inline-block;
 position: absolute;
+
 }
 
 .input button  {
 margin: 0px 0px 0px 8px;
 background-color: rgb(59, 161, 50);
 border-radius: 2px;
+cursor: pointer;
+font-weight: bold;
 }
 
 .input button:hover {
 background-color: rgb(113, 226, 113);
 }
+
+td {
+  border: 1px solid #000;
+  background-color: lightblue;
+  text-align: center;
+  padding: 5px 29px;
+}
+
+
+table {
+  border: 1px solid #000;
+  background-color: rgb(23, 186, 197);
+  margin: 30px 0px 0px 45px ;
+  border-collapse: collapse;
+}
+
+
+
+
+
+
+

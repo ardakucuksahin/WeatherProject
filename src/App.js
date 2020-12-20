@@ -2,18 +2,19 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-let key = '**YOUR KEY GOES HERE';
+const KEY = '**YOUR KEY GOES HERE';
 function App() {
   const [current, setCurrent] = useState({});
   const [location, setLocation] = useState({});
   const [city, setCity] = useState('London');
 
   useEffect(() => {
-    console.log(key,"  ",city)
-    axios.get(`http://api.weatherstack.com/current?access_key=${key}&query=${city}`)
+    if (city === '') {
+      return alert("Please Provide a Valid City Name");
+    }
+    axios.get(`http://api.weatherstack.com/current?access_key=${KEY}&query=${city}`)
 
       .then((response) => {
-        console.log(response);
         setCurrent(response.data.current);
         setLocation(response.data.location);
       })
@@ -39,12 +40,12 @@ function App() {
     context = (
       <>{
         <tr>
-          <td>{current.temperature}</td>
-          <td>{current.weather_descriptions}</td>
-          <td>{current.feelslike}</td>
-          <td>{current.humidity}</td>
-          <td>{current.wind_speed}</td>
-          <td>{current.observation_time}</td>
+          <td>{current?.temperature}°C</td>
+          <td>{current?.weather_descriptions}</td>
+          <td>{current?.feelslike}°C</td>
+          <td>{current?.humidity}%</td>
+          <td>{current?.wind_speed} km</td>
+          <td>{current?.observation_time}</td>
         </tr>
       }</>
     )
@@ -56,16 +57,17 @@ function App() {
     <div className="App">
 
       <div className="input">
+        <label><strong> Enter a city name:</strong></label><br></br><br></br>
         <input type="text" onChange={(e) => inputChanger(e)} />
-        <button onClick={citySearcher }>Search</button>
+        <button onClick={citySearcher}>Search</button>
       </div>
 
 
       <div className="card">
-        <p className="country">{location.country}</p>
-        <p className="name">{location.name}</p>
-        <p className="timezone">{location.timezone_id}</p>
-        <p className="localtime">{location.localtime}</p>
+        <p className="country">{location?.country?.length > 18 ? null : location?.country}</p>
+        <p className="name">{location?.name}</p>
+        <p className="timezone">{location?.timezone_id}</p>
+        <p className="localtime">{location?.localtime}</p>
       </div>
       <table>
         <thead>
